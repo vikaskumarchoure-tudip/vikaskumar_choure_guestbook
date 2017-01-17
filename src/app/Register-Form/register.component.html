@@ -1,0 +1,32 @@
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="container col-md-offset-2 col-md-8">
+          <h3>Register</h3>
+          <form (ngSubmit)="onRegister()" [formGroup]="registerForm">
+            <div class="formGroup">
+              <br/>
+              <label for="username">Username</label>
+              <input type="email" [(ngModel)]='register_model.reg_username' class="form-control" name="username" formControlName="reg_username">
+              <div *ngIf="!(registerForm.controls['reg_username'].valid || registerForm.controls['reg_username'].pristine)" class="alert alert-danger">Username is required</div>
+              <br/>
+              <label for="password">Password</label>
+              <input type="password" [(ngModel)]='register_model.reg_password' class="form-control" name="password" formControlName="reg_password">
+              <div *ngIf="!(registerForm.controls['reg_password'].valid || registerForm.controls['reg_password'].pristine)" class="alert alert-danger">Password is required</div>
+              <br/>
+              <label for="conf-password">Confirm Password</label>
+              <input type="password" [(ngModel)]='register_model.reg_conf_password' class="form-control" name="conf-password" formControlName="reg_conf_password">
+              <div *ngIf="!(registerForm.controls['reg_conf_password'].valid || registerForm.controls['reg_conf_password'].pristine)" class="alert alert-danger">Password is required</div>
+              <br/>
+              <button type="submit" [disabled]="!registerForm.valid" class="btn btn-default">Register</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <h5>{{register_model.reg_username}},{{register_model.reg_password}},{{register_model.reg_conf_password}}</h5>
+      </div>
+    </div>
+  </div>
+</div>
